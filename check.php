@@ -13,8 +13,7 @@ $familyPhotoResource = fopen($_FILES['image']['tmp_name'], 'r');
 $image = $vision->image($familyPhotoResource, 
     ['FACE_DETECTION',
      'LABEL_DETECTION',
-     'IMAGE_PROPERTIES',
-     'SAFE_SEARCH_DETECTION',
+     'IMAGE_PROPERTIES'
     ]);
 $result = $vision->annotate($image);
 
@@ -33,7 +32,7 @@ $text = $result->text();
 $fullText = $result->fullText();
 $properties = $result->imageProperties();
 $cropHints = $result->cropHints();
-$safeSearch = $result->safeSearch();
+
 
 
 
@@ -96,9 +95,7 @@ $safeSearch = $result->safeSearch();
                             <li class="nav-item">
                                 <a href="#pills-properties" role="tab" class="nav-link" id="pills-properties-tab" data-toggle="pill" aria-controls="pills-properties" aria-selected="true">Properties</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#pills-safesearch" role="tab" class="nav-link" id="pills-safesearch-tab" data-toggle="pill" aria-controls="pills-safesearch" aria-selected="true">Safe Search</a>
-                            </li>
+
 
                         </ul>
                         <hr>
@@ -128,13 +125,7 @@ $safeSearch = $result->safeSearch();
                                 </div>
                             </div>
 
-                            <div class="tab-pane fade show" id="pills-safesearch" role="tabpanel" aria-labelledby="pills-safesearch-tab">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <?php include "safesearch.php" ;?>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
